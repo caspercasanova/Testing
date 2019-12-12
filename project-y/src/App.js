@@ -15,6 +15,7 @@ function App() {
 				<Intro />
 				<div className='box'>Something Important2</div>
 				<div className='box'>Something Important3</div>
+				<div className='box'>Something Important5</div>
 			</div>
 			<div className='bottombar_container'>
 				<div className='box'>Hello Friends</div>
