@@ -1,8 +1,8 @@
 import React, { useRef, useMemo } from "react";
-
-import { Canvas, useFrame, extend, useThree, useRender } from "react-three-fiber";
+import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import Effects from "./3d/Effects";
+
+import Effects from "./Effects";
 
 function GlobeMesh() {
 	const earthRef = useRef();
@@ -14,6 +14,7 @@ function GlobeMesh() {
 		moonRef.current.position.z = earthRef.current.position.z + Math.cos(clock.getElapsedTime() / 1.5);
 		moonRef.current.position.x = earthRef.current.position.x + Math.sin(clock.getElapsedTime() / 1.5);
 	});
+	
 	return (
 		<>
 			<Stars />
@@ -61,15 +62,12 @@ function Stars({ count = 5000 }) {
 /* CONTROLS AND CANVAS */
 
 extend({ OrbitControls });
-
 function Controls(props) {
 	const { camera, gl } = useThree();
 	const orbitRef = useRef();
-	useRender(() => {
-		orbitRef.current.update();
-	});
 	return <orbitControls autorotate args={[camera, gl.domElement]} ref={orbitRef} />;
 }
+
 
 function GlobeCanvas() {
 	return (
@@ -84,3 +82,5 @@ function GlobeCanvas() {
 }
 
 export default GlobeCanvas;
+
+

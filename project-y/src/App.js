@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./App.css";
-import GlobeCanvas from "./components/GlobeCanvas";
+import GlobeCanvas from "./components/3d/GlobeCanvas";
 import Intro from "./components/Intro";
 
 function App() {
